@@ -1,0 +1,121 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/FPGA/I2C/simulation/modelsim
+vcmd_rom
+Z1 !s110 1527413006
+!i10b 1
+!s100 8>ji:l4:1RY^O[Re6kRL80
+IdeXT1A_=k1a][gPcKcK2N3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1527412816
+8D:/FPGA/I2C/cmd_rom.v
+FD:/FPGA/I2C/cmd_rom.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1527413006.000000
+!s107 D:/FPGA/I2C/cmd_rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/FPGA/I2C|D:/FPGA/I2C/cmd_rom.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+D:/FPGA/I2C
+Z7 tCvgOpt 0
+vctrl
+R1
+!i10b 1
+!s100 eF1I?T7?n67ijzC:ndm[X3
+IFC<Yi19[]WRU08Z9I<OL<3
+R2
+R0
+Z8 w1527412982
+8D:/FPGA/I2C/ctrl.v
+FD:/FPGA/I2C/ctrl.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/FPGA/I2C/ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/FPGA/I2C|D:/FPGA/I2C/ctrl.v|
+!i113 1
+R5
+R6
+R7
+vdivider
+R1
+!i10b 1
+!s100 W?M=bL_z0fHc70dHb2NmF0
+I4Jgh8b^;zg^JSDgHQJSCO3
+R2
+R0
+w1527398404
+8D:/FPGA/I2C/divider.v
+FD:/FPGA/I2C/divider.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/FPGA/I2C/divider.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/FPGA/I2C|D:/FPGA/I2C/divider.v|
+!i113 1
+R5
+R6
+R7
+vtestbench
+R1
+!i10b 1
+!s100 0T4nLgY=G2JV;^@>cdLNf2
+Ii_fQCVBjBbc7`O8Kabk]73
+R2
+R0
+R8
+8D:/FPGA/I2C/testbench.v
+FD:/FPGA/I2C/testbench.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/FPGA/I2C/testbench.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/FPGA/I2C|D:/FPGA/I2C/testbench.v|
+!i113 1
+R5
+R6
+R7
+vTOP
+R1
+!i10b 1
+!s100 NW_W87ch^;HJbC4`I<c`L0
+Ig7aXf^_[U]RRAEQjiNQ9O1
+R2
+R0
+w1527412742
+8D:/FPGA/I2C/TOP.v
+FD:/FPGA/I2C/TOP.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/FPGA/I2C/TOP.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/FPGA/I2C|D:/FPGA/I2C/TOP.v|
+!i113 1
+R5
+R6
+R7
+n@t@o@p

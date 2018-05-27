@@ -1,0 +1,135 @@
+|TOP
+ck => ck.IN1
+reset => reset.IN2
+scl << scl.DB_MAX_OUTPUT_PORT_TYPE
+sda <> ctrl:ic2.sda
+sda <> sda
+
+
+|TOP|divider:ic1
+ck => r.CLK
+ck => clk2~reg0.CLK
+ck => data2[0].CLK
+ck => data2[1].CLK
+ck => data2[2].CLK
+ck => data2[3].CLK
+ck => data2[4].CLK
+ck => data2[5].CLK
+ck => data2[6].CLK
+ck => data2[7].CLK
+ck => data2[8].CLK
+ck => data2[9].CLK
+ck => clk1~reg0.CLK
+ck => data1[0].CLK
+ck => data1[1].CLK
+ck => data1[2].CLK
+ck => data1[3].CLK
+ck => data1[4].CLK
+ck => data1[5].CLK
+ck => data1[6].CLK
+ck => data1[7].CLK
+ck => data1[8].CLK
+ck => data1[9].CLK
+reset => r.PRESET
+reset => clk2~reg0.ACLR
+reset => data2[0].ACLR
+reset => data2[1].ACLR
+reset => data2[2].ACLR
+reset => data2[3].ACLR
+reset => data2[4].ACLR
+reset => data2[5].ACLR
+reset => data2[6].ACLR
+reset => data2[7].ACLR
+reset => data2[8].ACLR
+reset => data2[9].ACLR
+reset => clk1~reg0.ACLR
+reset => data1[0].ACLR
+reset => data1[1].ACLR
+reset => data1[2].ACLR
+reset => data1[3].ACLR
+reset => data1[4].ACLR
+reset => data1[5].ACLR
+reset => data1[6].ACLR
+reset => data1[7].ACLR
+reset => data1[8].ACLR
+reset => data1[9].ACLR
+clk1 <= clk1~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk2 <= clk2~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TOP|ctrl:ic2
+reset => add_con[0].PRESET
+reset => add_con[1].PRESET
+reset => add_con[2].PRESET
+reset => add_con[3].ACLR
+reset => cmd_address[0]~reg0.ACLR
+reset => cmd_address[1]~reg0.ACLR
+reset => cmd_address[2]~reg0.ACLR
+reset => cmd_address[3]~reg0.ACLR
+reset => cmd_address[4]~reg0.ACLR
+reset => cmd_address[5]~reg0.ACLR
+reset => cmd_address[6]~reg0.ACLR
+reset => fsm~3.DATAIN
+clk2 => add_con[0].CLK
+clk2 => add_con[1].CLK
+clk2 => add_con[2].CLK
+clk2 => add_con[3].CLK
+clk2 => cmd_address[0]~reg0.CLK
+clk2 => cmd_address[1]~reg0.CLK
+clk2 => cmd_address[2]~reg0.CLK
+clk2 => cmd_address[3]~reg0.CLK
+clk2 => cmd_address[4]~reg0.CLK
+clk2 => cmd_address[5]~reg0.CLK
+clk2 => cmd_address[6]~reg0.CLK
+clk2 => fsm~1.DATAIN
+sda => fsm_next.OUTPUTSELECT
+sda => fsm_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => cmd_address_next.OUTPUTSELECT
+sda => Selector1.IN1
+sda => Selector3.IN2
+sda => Selector4.IN2
+cmd_data[0] => Mux1.IN7
+cmd_data[1] => Mux1.IN6
+cmd_data[2] => Mux1.IN5
+cmd_data[3] => Mux1.IN4
+cmd_data[4] => Mux1.IN3
+cmd_data[5] => Mux1.IN2
+cmd_data[6] => Mux1.IN1
+cmd_data[7] => Mux1.IN0
+cmd_address[0] <= cmd_address[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cmd_address[1] <= cmd_address[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cmd_address[2] <= cmd_address[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cmd_address[3] <= cmd_address[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cmd_address[4] <= cmd_address[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cmd_address[5] <= cmd_address[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+cmd_address[6] <= cmd_address[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+sda_w <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_d <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_l <= ctrl_l.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_h <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TOP|cmd_rom:ic3
+address[0] => rom.RADDR
+address[1] => rom.RADDR1
+address[2] => rom.RADDR2
+address[3] => rom.RADDR3
+address[4] => rom.RADDR4
+address[5] => rom.RADDR5
+address[6] => ~NO_FANOUT~
+data_out[0] <= rom.DATAOUT
+data_out[1] <= rom.DATAOUT1
+data_out[2] <= rom.DATAOUT2
+data_out[3] <= rom.DATAOUT3
+data_out[4] <= rom.DATAOUT4
+data_out[5] <= rom.DATAOUT5
+data_out[6] <= rom.DATAOUT6
+data_out[7] <= rom.DATAOUT7
+
+

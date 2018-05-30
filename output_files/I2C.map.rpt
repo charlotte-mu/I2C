@@ -1,5 +1,5 @@
 Analysis & Synthesis report for I2C
-Sun May 27 17:27:34 2018
+Tue May 29 20:10:32 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
 
 
@@ -48,16 +48,16 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun May 27 17:27:34 2018       ;
+; Analysis & Synthesis Status        ; Successful - Tue May 29 20:10:32 2018       ;
 ; Quartus Prime Version              ; 17.0.2 Build 602 07/19/2017 SJ Lite Edition ;
 ; Revision Name                      ; I2C                                         ;
 ; Top-level Entity Name              ; TOP                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 103                                         ;
-;     Total combinational functions  ; 103                                         ;
-;     Dedicated logic registers      ; 44                                          ;
-; Total registers                    ; 44                                          ;
-; Total pins                         ; 4                                           ;
+; Total logic elements               ; 45                                          ;
+;     Total combinational functions  ; 43                                          ;
+;     Dedicated logic registers      ; 27                                          ;
+; Total registers                    ; 27                                          ;
+; Total pins                         ; 6                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -158,16 +158,16 @@ agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
-;     Processors 3-6         ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -188,30 +188,30 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 103         ;
+; Estimated Total logic elements              ; 45          ;
 ;                                             ;             ;
-; Total combinational functions               ; 103         ;
+; Total combinational functions               ; 43          ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 43          ;
-;     -- 3 input functions                    ; 9           ;
-;     -- <=2 input functions                  ; 51          ;
+;     -- 4 input functions                    ; 10          ;
+;     -- 3 input functions                    ; 8           ;
+;     -- <=2 input functions                  ; 25          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 79          ;
-;     -- arithmetic mode                      ; 24          ;
+;     -- normal mode                          ; 34          ;
+;     -- arithmetic mode                      ; 9           ;
 ;                                             ;             ;
-; Total registers                             ; 44          ;
-;     -- Dedicated logic registers            ; 44          ;
+; Total registers                             ; 27          ;
+;     -- Dedicated logic registers            ; 27          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 4           ;
+; I/O pins                                    ; 6           ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 44          ;
-; Total fan-out                               ; 454         ;
-; Average fan-out                             ; 2.91        ;
+; Maximum fan-out                             ; 27          ;
+; Total fan-out                               ; 207         ;
+; Average fan-out                             ; 2.49        ;
 +---------------------------------------------+-------------+
 
 
@@ -220,9 +220,9 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |TOP                       ; 103 (2)             ; 44 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 4    ; 0            ; 0          ; |TOP                ; TOP         ; work         ;
-;    |ctrl:ic2|              ; 59 (59)             ; 21 (21)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|ctrl:ic2       ; ctrl        ; work         ;
-;    |divider:ic1|           ; 42 (42)             ; 23 (23)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|divider:ic1    ; divider     ; work         ;
+; |TOP                       ; 43 (2)              ; 27 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 6    ; 0            ; 0          ; |TOP                ; TOP         ; work         ;
+;    |ctrl:ic2|              ; 19 (19)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|ctrl:ic2       ; ctrl        ; work         ;
+;    |divider:ic1|           ; 22 (22)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|divider:ic1    ; divider     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -246,18 +246,31 @@ Encoding Type:  One-Hot
 +-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; ctrl:ic2|fsm~4                        ; Lost fanout        ;
-; ctrl:ic2|fsm~5                        ; Lost fanout        ;
-; ctrl:ic2|fsm~6                        ; Lost fanout        ;
-; ctrl:ic2|fsm~7                        ; Lost fanout        ;
-; ctrl:ic2|fsm~8                        ; Lost fanout        ;
-; Total Number of Removed Registers = 5 ;                    ;
-+---------------------------------------+--------------------+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; ctrl:ic2|cmd_address[0..5]             ; Merged with ctrl:ic2|cmd_address[6]    ;
+; divider:ic1|data2[6]                   ; Merged with divider:ic1|data1[6]       ;
+; divider:ic1|data2[5]                   ; Merged with divider:ic1|data1[5]       ;
+; divider:ic1|data2[4]                   ; Merged with divider:ic1|data1[4]       ;
+; divider:ic1|data2[3]                   ; Merged with divider:ic1|data1[3]       ;
+; divider:ic1|data2[2]                   ; Merged with divider:ic1|data1[2]       ;
+; divider:ic1|data2[0]                   ; Merged with divider:ic1|data1[0]       ;
+; divider:ic1|data2[9]                   ; Merged with divider:ic1|data1[9]       ;
+; divider:ic1|data2[8]                   ; Merged with divider:ic1|data1[8]       ;
+; divider:ic1|data2[7]                   ; Merged with divider:ic1|data1[7]       ;
+; divider:ic1|data2[1]                   ; Merged with divider:ic1|data1[1]       ;
+; ctrl:ic2|cmd_address[6]                ; Stuck at GND due to stuck port data_in ;
+; ctrl:ic2|fsm~4                         ; Lost fanout                            ;
+; ctrl:ic2|fsm~5                         ; Lost fanout                            ;
+; ctrl:ic2|fsm~6                         ; Lost fanout                            ;
+; ctrl:ic2|fsm~7                         ; Lost fanout                            ;
+; ctrl:ic2|fsm~8                         ; Lost fanout                            ;
+; divider:ic1|r1                         ; Merged with divider:ic1|r2             ;
+; Total Number of Removed Registers = 23 ;                                        ;
++----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -265,12 +278,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 44    ;
-; Number of registers using Synchronous Clear  ; 7     ;
+; Total registers                              ; 27    ;
+; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 44    ;
+; Number of registers using Asynchronous Clear ; 27    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Clock Enable       ; 5     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -280,11 +293,10 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; ctrl:ic2|add_con[2]                    ; 6       ;
-; ctrl:ic2|add_con[1]                    ; 18      ;
-; ctrl:ic2|add_con[0]                    ; 20      ;
-; divider:ic1|r                          ; 2       ;
-; Total number of inverted registers = 4 ;         ;
+; ctrl:ic2|add_con[2]                    ; 5       ;
+; ctrl:ic2|add_con[1]                    ; 6       ;
+; ctrl:ic2|add_con[0]                    ; 8       ;
+; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
 
 
@@ -293,7 +305,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP|ctrl:ic2|add_con[1]   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP|ctrl:ic2|add_con[2]   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
@@ -302,7 +314,6 @@ Encoding Type:  One-Hot
 +----------------+-------+---------------------------------+
 ; Parameter Name ; Value ; Type                            ;
 +----------------+-------+---------------------------------+
-; cnt1           ; 250   ; Signed Integer                  ;
 ; cnt2           ; 125   ; Signed Integer                  ;
 +----------------+-------+---------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
@@ -313,23 +324,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 4                           ;
-; cycloneiii_ff         ; 44                          ;
-;     CLR               ; 33                          ;
-;     ENA CLR           ; 4                           ;
-;     ENA CLR SCLR      ; 7                           ;
+; boundary_port         ; 6                           ;
+; cycloneiii_ff         ; 27                          ;
+;     CLR               ; 22                          ;
+;     ENA CLR           ; 5                           ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 103                         ;
-;     arith             ; 24                          ;
-;         2 data inputs ; 24                          ;
-;     normal            ; 79                          ;
+; cycloneiii_lcell_comb ; 43                          ;
+;     arith             ; 9                           ;
+;         2 data inputs ; 9                           ;
+;     normal            ; 34                          ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 22                          ;
-;         3 data inputs ; 9                           ;
-;         4 data inputs ; 43                          ;
+;         2 data inputs ; 11                          ;
+;         3 data inputs ; 8                           ;
+;         4 data inputs ; 10                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 3.10                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.02                        ;
 +-----------------------+-----------------------------+
 
 
@@ -338,7 +348,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -348,10 +358,10 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
-    Info: Processing started: Sun May 27 17:27:19 2018
+    Info: Processing started: Tue May 29 20:10:21 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off I2C -c I2C
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file top.v
     Info (12023): Found entity 1: TOP File: D:/FPGA/I2C/TOP.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file divider.v
@@ -364,7 +374,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file cmd_rom
     Info (12023): Found entity 1: cmd_rom File: D:/FPGA/I2C/cmd_rom.v Line: 1
 Info (12127): Elaborating entity "TOP" for the top level hierarchy
 Info (12128): Elaborating entity "divider" for hierarchy "divider:ic1" File: D:/FPGA/I2C/TOP.v Line: 19
-Info (12128): Elaborating entity "ctrl" for hierarchy "ctrl:ic2" File: D:/FPGA/I2C/TOP.v Line: 31
+Info (12128): Elaborating entity "ctrl" for hierarchy "ctrl:ic2" File: D:/FPGA/I2C/TOP.v Line: 33
 Warning (10240): Verilog HDL Always Construct warning at ctrl.v(15): inferring latch(es) for variable "address_7a", which holds its previous value in one or more paths through the always construct File: D:/FPGA/I2C/ctrl.v Line: 15
 Info (10041): Inferred latch for "address_7a[0]" at ctrl.v(15) File: D:/FPGA/I2C/ctrl.v Line: 15
 Info (10041): Inferred latch for "address_7a[1]" at ctrl.v(15) File: D:/FPGA/I2C/ctrl.v Line: 15
@@ -374,7 +384,7 @@ Info (10041): Inferred latch for "address_7a[4]" at ctrl.v(15) File: D:/FPGA/I2C
 Info (10041): Inferred latch for "address_7a[5]" at ctrl.v(15) File: D:/FPGA/I2C/ctrl.v Line: 15
 Info (10041): Inferred latch for "address_7a[6]" at ctrl.v(15) File: D:/FPGA/I2C/ctrl.v Line: 15
 Info (10041): Inferred latch for "address_7a[7]" at ctrl.v(15) File: D:/FPGA/I2C/ctrl.v Line: 15
-Info (12128): Elaborating entity "cmd_rom" for hierarchy "cmd_rom:ic3" File: D:/FPGA/I2C/TOP.v Line: 37
+Info (12128): Elaborating entity "cmd_rom" for hierarchy "cmd_rom:ic3" File: D:/FPGA/I2C/TOP.v Line: 39
 Warning (10030): Net "rom.data_a" at cmd_rom.v(7) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/cmd_rom.v Line: 7
 Warning (10030): Net "rom.waddr_a" at cmd_rom.v(7) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/cmd_rom.v Line: 7
 Warning (10030): Net "rom.we_a" at cmd_rom.v(7) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/cmd_rom.v Line: 7
@@ -383,21 +393,21 @@ Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File 
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "cmd_rom:ic3|rom" is uninferred because MIF is not supported for the selected family File: D:/FPGA/I2C/cmd_rom.v Line: 7
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/FPGA/I2C/db/I2C.ram0_cmd_rom_565410ab.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Info (13000): Registers with preset signals will power-up high File: D:/FPGA/I2C/ctrl.v Line: 26
+Info (13000): Registers with preset signals will power-up high File: D:/FPGA/I2C/divider.v Line: 9
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 107 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 51 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 1 output pins
+    Info (21059): Implemented 3 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 103 logic cells
+    Info (21061): Implemented 45 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4806 megabytes
-    Info: Processing ended: Sun May 27 17:27:34 2018
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:33
+    Info: Peak virtual memory: 4780 megabytes
+    Info: Processing ended: Tue May 29 20:10:32 2018
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:24
 
 

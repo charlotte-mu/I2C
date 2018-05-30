@@ -1,5 +1,5 @@
 module ctrl(
-	input reset,clk2,sda,scl,clk1,
+	input reset,clk2,sda,
 	input [7:0]cmd_data,
 	output reg [6:0]cmd_address,
 	output reg sda_w,ctrl_d,ctrl_l,ctrl_h
@@ -19,7 +19,7 @@ begin
 		fsm <= 5'd0;
 		cmd_address <= 7'd0;
 		add_con <= 4'd7;
-		address_7a <= 8'b01111010;
+		address_7a <= 8'b11110100;
 	end
 	else
 	begin
@@ -150,8 +150,16 @@ begin
 			end
 			else
 			begin
-				cmd_address_next = cmd_address;
-				fsm_next = 5'd8;
+				if(cmd_address < 7'd40)
+				begin
+					cmd_address_next = cmd_address + 7'd1;
+					fsm_next = 5'd4;
+				end
+				else
+				begin
+					cmd_address_next = 7'd0;
+					fsm_next = 5'd8;
+				end
 			end
 			add_con_next = add_con;
 			sda_w = 1'b0;
@@ -174,14 +182,7 @@ begin
 			sda_w = 1'b1;
 			ctrl_h = 1'b1;
 			ctrl_l = 1'b0;
-			if(cmd_address < 7'd40)
-			begin
-				fsm_next = 5'd0;
-			end
-			else
-			begin
-				fsm_next = fsm;
-			end
+			fsm_next = fsm;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
 		end

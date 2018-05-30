@@ -2,12 +2,15 @@
 ck => ck.IN1
 reset => reset.IN2
 scl << scl.DB_MAX_OUTPUT_PORT_TYPE
+ck1 << ck1.DB_MAX_OUTPUT_PORT_TYPE
+ck2 << ck2.DB_MAX_OUTPUT_PORT_TYPE
 sda <> ctrl:ic2.sda
 sda <> sda
 
 
 |TOP|divider:ic1
-ck => r.CLK
+ck => r2.CLK
+ck => r1.CLK
 ck => clk2~reg0.CLK
 ck => data2[0].CLK
 ck => data2[1].CLK
@@ -30,7 +33,8 @@ ck => data1[6].CLK
 ck => data1[7].CLK
 ck => data1[8].CLK
 ck => data1[9].CLK
-reset => r.PRESET
+reset => r2.ACLR
+reset => r1.PRESET
 reset => clk2~reg0.ACLR
 reset => data2[0].ACLR
 reset => data2[1].ACLR
@@ -82,18 +86,9 @@ clk2 => cmd_address[4]~reg0.CLK
 clk2 => cmd_address[5]~reg0.CLK
 clk2 => cmd_address[6]~reg0.CLK
 clk2 => fsm~1.DATAIN
-sda => fsm_next.OUTPUTSELECT
-sda => fsm_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => cmd_address_next.OUTPUTSELECT
-sda => Selector1.IN1
-sda => Selector3.IN2
-sda => Selector4.IN2
+sda => ~NO_FANOUT~
+scl => ~NO_FANOUT~
+clk1 => ~NO_FANOUT~
 cmd_data[0] => Mux1.IN7
 cmd_data[1] => Mux1.IN6
 cmd_data[2] => Mux1.IN5

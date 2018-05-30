@@ -1,10 +1,10 @@
 module TOP(
 	input ck,reset,
-	output scl,ck1,ck2,
+	output scl,
 	inout sda
 );
 
-wire ctrl_d,sda_w,ctrl_l,ctrl_h;
+wire ck1,ck2,ctrl_d,sda_w,ctrl_l,ctrl_h;
 wire [6:0]cmd_address;
 wire [7:0]cmd_data;
 
@@ -20,9 +20,7 @@ divider ic1(
 
 ctrl ic2(
 	.sda(sda),
-	.scl(scl),
 	.clk2(ck2),
-	.clk1(ck1),
 	.reset(reset),
 	.cmd_data(cmd_data),
 	.cmd_address(cmd_address),

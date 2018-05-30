@@ -8,6 +8,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "ck1",
+					"strict" : false
+				},
+				{
+					"name" : "ck2",
+					"strict" : false
+				},
+				{
 					"name" : "sda",
 					"strict" : false
 				},

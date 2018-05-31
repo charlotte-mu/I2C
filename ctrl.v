@@ -55,15 +55,15 @@ begin
 		5'd2:		//address => 7a
 		begin
 			ctrl_d = 1'b1;
-			if(add_con > 4'd0)
-			begin
-				add_con_next = add_con - 4'd1;
-				fsm_next = fsm;
-			end
-			else
+			if(add_con == 4'd0)
 			begin
 				add_con_next = 4'd7;
 				fsm_next = 5'd3;
+			end
+			else
+			begin
+				add_con_next = add_con - 4'd1;
+				fsm_next = fsm;
 			end
 			sda_w = address_7a[add_con];
 			ctrl_h = 1'b0;
@@ -90,15 +90,15 @@ begin
 		5'd4:		//cmd_mode
 		begin
 			ctrl_d = 1'b1;
-			if(add_con > 4'd0)
-			begin
-				add_con_next = add_con - 4'd1;
-				fsm_next = fsm;
-			end
-			else
+			if(add_con == 4'd0)
 			begin
 				add_con_next = 4'd7;
 				fsm_next = 5'd5;
+			end
+			else
+			begin
+				add_con_next = add_con - 4'd1;
+				fsm_next = fsm;
 			end
 			sda_w = 1'b0;
 			ctrl_h = 1'b0;
@@ -125,15 +125,15 @@ begin
 		5'd6:		//cmd_data
 		begin
 			ctrl_d = 1'b1;
-			if(add_con > 4'd0)
-			begin
-				add_con_next = add_con - 4'd1;
-				fsm_next = fsm;
-			end
-			else
+			if(add_con == 4'd0)
 			begin
 				add_con_next = 4'd7;
 				fsm_next = 5'd7;
+			end
+			else
+			begin
+				add_con_next = add_con - 4'd1;
+				fsm_next = fsm;
 			end
 			sda_w = cmd_data[add_con];
 			ctrl_h = 1'b0;

@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue May 29 20:10:32 2018
+Analysis & Synthesis Status : Successful - Thu May 31 23:30:30 2018
 Quartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Lite Edition
 Revision Name : I2C
 Top-level Entity Name : TOP
 Family : MAX 10
-Total logic elements : 45
-    Total combinational functions : 43
+Total logic elements : 46
+    Total combinational functions : 45
     Dedicated logic registers : 27
 Total registers : 27
 Total pins : 6

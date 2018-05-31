@@ -185,6 +185,16 @@ begin
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
 		end
+		default:
+		begin
+			ctrl_d = 1'b0;
+			sda_w = 1'b0;
+			ctrl_h = 1'b0;
+			ctrl_l = 1'b0;
+			fsm_next = fsm;
+			cmd_address_next = cmd_address;
+			add_con_next = add_con;
+		end
 	endcase
 end
 

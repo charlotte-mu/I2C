@@ -1,23 +1,85 @@
 Info: Start Nativelink Simulation process
-Info: NativeLink has detected Verilog design -- Verilog simulation models will be used
 
 ========= EDA Simulation Settings =====================
 
-Sim Mode              :  RTL
+Sim Mode              :  Gate
 Family                :  max10
 Quartus root          :  c:/intelfpga_lite/17.0/quartus/bin64/
 Quartus sim root      :  c:/intelfpga_lite/17.0/quartus/eda/sim_lib
 Simulation Tool       :  modelsim-altera
 Simulation Language   :  verilog
 Simulation Mode       :  GUI
-Sim Output File       :  
-Sim SDF file          :  
+Sim Output File       :  I2C.vo
+Sim SDF file          :  I2C__verilog.sdo
 Sim dir               :  simulation\modelsim
 
 =======================================================
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
 Sourced NativeLink script c:/intelfpga_lite/17.0/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File I2C_run_msim_rtl_verilog.do already exists - backing up current file as I2C_run_msim_rtl_verilog.do.bak11
-Info: Spawning ModelSim-Altera Simulation software 
+Warning: File I2C_run_msim_gate_verilog.do already exists - backing up current file as I2C_run_msim_gate_verilog.do.bak4
+Probing transcript
+ModelSim-Altera Info: # Reading C:/intelFPGA_lite/17.0/modelsim_ase/tcl/vsim/pref.tcl
+ModelSim-Altera Info: # do I2C_run_msim_gate_verilog.do
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+ModelSim-Altera Info: # vmap work gate_work 
+ModelSim-Altera Info: # Copying C:/intelFPGA_lite/17.0/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vlog -vlog01compat -work work +incdir+. {I2C.vo}
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+ModelSim-Altera Info: # Start time: 21:16:13 on Jun 04,2018
+ModelSim-Altera Info: # vlog -reportprogress 300 -vlog01compat -work work "+incdir+." I2C.vo 
+ModelSim-Altera Info: # -- Compiling module TOP
+ModelSim-Altera Info: # -- Compiling module hard_block
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Top level modules:
+ModelSim-Altera Info: # 	TOP
+ModelSim-Altera Info: # End time: 21:16:13 on Jun 04,2018, Elapsed time: 0:00:00
+ModelSim-Altera Info: # Errors: 0, Warnings: 0
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vlog -vlog01compat -work work +incdir+D:/FPGA/I2C {D:/FPGA/I2C/testbench.v}
+ModelSim-Altera Info: # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+ModelSim-Altera Info: # Start time: 21:16:13 on Jun 04,2018
+ModelSim-Altera Info: # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/FPGA/I2C" D:/FPGA/I2C/testbench.v 
+ModelSim-Altera Info: # -- Compiling module testbench
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # Top level modules:
+ModelSim-Altera Info: # 	testbench
+ModelSim-Altera Info: # End time: 21:16:13 on Jun 04,2018, Elapsed time: 0:00:00
+ModelSim-Altera Info: # Errors: 0, Warnings: 0
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vsim -t 1ps +transport_int_delays +transport_path_delays -L altera_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L gate_work -L work -voptargs="+acc"  testbench
+ModelSim-Altera Info: # vsim -t 1ps "+transport_int_delays" "+transport_path_delays" -L altera_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L gate_work -L work -voptargs=""+acc"" testbench 
+ModelSim-Altera Info: # Start time: 21:16:13 on Jun 04,2018
+ModelSim-Altera Info: # Loading work.testbench
+ModelSim-Altera Info: # Loading work.TOP
+ModelSim-Altera Info: # Loading work.hard_block
+ModelSim-Altera Info: # Loading altera_ver.dffeas
+ModelSim-Altera Warning: # ** Warning: (vsim-3017) D:/FPGA/I2C/testbench.v(15): [TFMPC] - Too few port connections. Expected 6, found 4.
+ModelSim-Altera Info: #    Time: 0 ps  Iteration: 0  Instance: /testbench/top File: I2C.vo
+ModelSim-Altera Warning: # ** Warning: (vsim-3722) D:/FPGA/I2C/testbench.v(15): [TFMPC] - Missing connection for port 'ck1'.
+ModelSim-Altera Warning: # ** Warning: (vsim-3722) D:/FPGA/I2C/testbench.v(15): [TFMPC] - Missing connection for port 'ck2'.
+ModelSim-Altera Info: # Loading altera_ver.PRIM_GDFF_LOW
+ModelSim-Altera Warning: # ** Warning: (vsim-3017) I2C.vo(1610): [TFMPC] - Too few port connections. Expected 8, found 7.
+ModelSim-Altera Info: #    Time: 0 ps  Iteration: 0  Instance: /testbench/top/\~QUARTUS_CREATED_ADC1~  File: nofile
+ModelSim-Altera Warning: # ** Warning: (vsim-3722) I2C.vo(1610): [TFMPC] - Missing connection for port 'clk_dft'.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave *
+ModelSim-Altera Info: # view structure
+ModelSim-Altera Info: # .main_pane.structure.interior.cs.body.struct
+ModelSim-Altera Info: # view signals
+ModelSim-Altera Info: # .main_pane.objects.interior.cs.body.tree
+ModelSim-Altera Info: # run -all
+ModelSim-Altera Info: # ** Note: $finish    : D:/FPGA/I2C/testbench.v(30)
+ModelSim-Altera Info: #    Time: 5000100 ns  Iteration: 0  Instance: /testbench
+ModelSim-Altera Info: # 1
+ModelSim-Altera Info: # Break in Module testbench at D:/FPGA/I2C/testbench.v line 30
+ModelSim-Altera Info: # End time: 21:16:37 on Jun 04,2018, Elapsed time: 0:00:24
+ModelSim-Altera Info: # Errors: 0, Warnings: 5
 Info: NativeLink simulation flow was successful

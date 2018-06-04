@@ -8,58 +8,36 @@ z2
 !i10f 100
 cModel Technology
 Z0 dD:/FPGA/I2C/simulation/modelsim
-vdivider
-Z1 !s110 1527313733
+vhard_block
+Z1 !s110 1528118173
 !i10b 1
-!s100 hX^B7g@P8O4JJHCgB<n[`2
-I7nk>9EOnh:genEcS@;iA32
+!s100 dS:c9ZSWe4dbz75<34XD:3
+IcI=EWDeaoJKMHnin7D>F`0
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1527313726
+Z3 w1528118167
 Z4 8I2C.vo
 Z5 FI2C.vo
-L0 32
+L0 1642
 Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1527313733.000000
+Z7 !s108 1528118173.000000
 Z8 !s107 I2C.vo|
 Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|I2C.vo|
 !i113 1
 Z10 o-vlog01compat -work work
 Z11 !s92 -vlog01compat -work work +incdir+.
 Z12 tCvgOpt 0
-vhard_block
-R1
-!i10b 1
-!s100 03_OQUA@E<<=1cHIZQ=R[0
-IlO<j`_kV]1eNTad@;UX832
-R2
-R0
-R3
-R4
-R5
-L0 1467
-R6
-r1
-!s85 0
-31
-R7
-R8
-R9
-!i113 1
-R10
-R11
-R12
 vtestbench
 R1
 !i10b 1
-!s100 ogYhOFK;gF0zCiO0>;1DQ0
-I0H?WcGm:Q0JPJHT_A4HTV0
+!s100 0T4nLgY=G2JV;^@>cdLNf2
+Ii_fQCVBjBbc7`O8Kabk]73
 R2
 R0
-w1527313680
+w1527470216
 8D:/FPGA/I2C/testbench.v
 FD:/FPGA/I2C/testbench.v
 L0 3
@@ -74,3 +52,26 @@ R7
 R10
 !s92 -vlog01compat -work work +incdir+D:/FPGA/I2C
 R12
+vTOP
+R1
+!i10b 1
+!s100 NH]lEcgYWLd>o[OOH7TU;3
+ISbH]>njk]AL?PG5Fk=V:R2
+R2
+R0
+R3
+R4
+R5
+L0 32
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+n@t@o@p

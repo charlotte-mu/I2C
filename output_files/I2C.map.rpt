@@ -1,5 +1,5 @@
 Analysis & Synthesis report for I2C
-Mon Jun 04 10:25:35 2018
+Mon Jun 04 21:50:59 2018
 Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
 
 
@@ -15,13 +15,15 @@ Quartus Prime Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |TOP|ctrl:ic2|fsm
   9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: divider:ic1
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: divider:ic1
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,15 +50,15 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 04 10:25:34 2018       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 04 21:50:59 2018       ;
 ; Quartus Prime Version              ; 17.0.2 Build 602 07/19/2017 SJ Lite Edition ;
 ; Revision Name                      ; I2C                                         ;
 ; Top-level Entity Name              ; TOP                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 47                                          ;
-;     Total combinational functions  ; 45                                          ;
-;     Dedicated logic registers      ; 28                                          ;
-; Total registers                    ; 28                                          ;
+; Total logic elements               ; 99                                          ;
+;     Total combinational functions  ; 96                                          ;
+;     Dedicated logic registers      ; 45                                          ;
+; Total registers                    ; 45                                          ;
 ; Total pins                         ; 6                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -180,6 +182,7 @@ agreement for further details.
 ; divider.v                        ; yes             ; User Verilog HDL File  ; D:/FPGA/I2C/divider.v        ;         ;
 ; ctrl.v                           ; yes             ; User Verilog HDL File  ; D:/FPGA/I2C/ctrl.v           ;         ;
 ; cmd_rom.v                        ; yes             ; User Verilog HDL File  ; D:/FPGA/I2C/cmd_rom.v        ;         ;
+; lcd_rom.v                        ; yes             ; User Verilog HDL File  ; D:/FPGA/I2C/lcd_rom.v        ;         ;
 +----------------------------------+-----------------+------------------------+------------------------------+---------+
 
 
@@ -188,20 +191,20 @@ agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 47          ;
+; Estimated Total logic elements              ; 99          ;
 ;                                             ;             ;
-; Total combinational functions               ; 45          ;
+; Total combinational functions               ; 96          ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 13          ;
-;     -- 3 input functions                    ; 6           ;
-;     -- <=2 input functions                  ; 26          ;
+;     -- 4 input functions                    ; 49          ;
+;     -- 3 input functions                    ; 14          ;
+;     -- <=2 input functions                  ; 33          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 36          ;
-;     -- arithmetic mode                      ; 9           ;
+;     -- normal mode                          ; 82          ;
+;     -- arithmetic mode                      ; 14          ;
 ;                                             ;             ;
-; Total registers                             ; 28          ;
-;     -- Dedicated logic registers            ; 28          ;
+; Total registers                             ; 45          ;
+;     -- Dedicated logic registers            ; 45          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
 ; I/O pins                                    ; 6           ;
@@ -209,9 +212,9 @@ agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 27          ;
-; Total fan-out                               ; 218         ;
-; Average fan-out                             ; 2.53        ;
+; Maximum fan-out                             ; 44          ;
+; Total fan-out                               ; 457         ;
+; Average fan-out                             ; 2.97        ;
 +---------------------------------------------+-------------+
 
 
@@ -220,57 +223,76 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
-; |TOP                       ; 45 (2)              ; 28 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 6    ; 0            ; 0          ; |TOP                ; TOP         ; work         ;
-;    |ctrl:ic2|              ; 21 (21)             ; 15 (15)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|ctrl:ic2       ; ctrl        ; work         ;
+; |TOP                       ; 96 (2)              ; 45 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 6    ; 0            ; 0          ; |TOP                ; TOP         ; work         ;
+;    |ctrl:ic2|              ; 72 (72)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|ctrl:ic2       ; ctrl        ; work         ;
 ;    |divider:ic1|           ; 22 (22)             ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |TOP|divider:ic1    ; divider     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |TOP|ctrl:ic2|fsm                                                                                                 ;
-+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-; Name      ; fsm.01001 ; fsm.01000 ; fsm.00111 ; fsm.00110 ; fsm.00101 ; fsm.00100 ; fsm.00011 ; fsm.00010 ; fsm.00001 ; fsm.00000 ;
-+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
-; fsm.00000 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
-; fsm.00001 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
-; fsm.00010 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
-; fsm.00011 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
-; fsm.00100 ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
-; fsm.00101 ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; fsm.00110 ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; fsm.00111 ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; fsm.01000 ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-; fsm.01001 ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
-+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |TOP|ctrl:ic2|fsm                                                                                                                                                                                                                         ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; Name      ; fsm.10011 ; fsm.10010 ; fsm.10001 ; fsm.10000 ; fsm.01111 ; fsm.01110 ; fsm.01101 ; fsm.01100 ; fsm.01011 ; fsm.01010 ; fsm.01001 ; fsm.01000 ; fsm.00111 ; fsm.00110 ; fsm.00101 ; fsm.00100 ; fsm.00011 ; fsm.00010 ; fsm.00001 ; fsm.00000 ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
+; fsm.00000 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ;
+; fsm.00001 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 1         ;
+; fsm.00010 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 1         ;
+; fsm.00011 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 1         ;
+; fsm.00100 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.00101 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.00110 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.00111 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01000 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01001 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01010 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01011 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01100 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01101 ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01110 ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.01111 ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.10000 ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.10001 ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.10010 ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
+; fsm.10011 ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ;
++-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; ctrl:ic2|cmd_address[0..5]             ; Merged with ctrl:ic2|cmd_address[6]    ;
-; divider:ic1|data2[6]                   ; Merged with divider:ic1|data1[6]       ;
-; divider:ic1|data2[5]                   ; Merged with divider:ic1|data1[5]       ;
-; divider:ic1|data2[4]                   ; Merged with divider:ic1|data1[4]       ;
-; divider:ic1|data2[3]                   ; Merged with divider:ic1|data1[3]       ;
-; divider:ic1|data2[2]                   ; Merged with divider:ic1|data1[2]       ;
-; divider:ic1|data2[0]                   ; Merged with divider:ic1|data1[0]       ;
-; divider:ic1|data2[9]                   ; Merged with divider:ic1|data1[9]       ;
-; divider:ic1|data2[8]                   ; Merged with divider:ic1|data1[8]       ;
-; divider:ic1|data2[7]                   ; Merged with divider:ic1|data1[7]       ;
-; divider:ic1|data2[1]                   ; Merged with divider:ic1|data1[1]       ;
-; ctrl:ic2|cmd_address[6]                ; Stuck at GND due to stuck port data_in ;
-; ctrl:ic2|fsm~4                         ; Lost fanout                            ;
-; ctrl:ic2|fsm~5                         ; Lost fanout                            ;
-; ctrl:ic2|fsm~6                         ; Lost fanout                            ;
-; ctrl:ic2|fsm~7                         ; Lost fanout                            ;
-; ctrl:ic2|fsm~8                         ; Lost fanout                            ;
-; divider:ic1|r1                         ; Merged with divider:ic1|r2             ;
-; Total Number of Removed Registers = 23 ;                                        ;
-+----------------------------------------+----------------------------------------+
++---------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                        ;
++----------------------------------------+----------------------------------+
+; Register name                          ; Reason for Removal               ;
++----------------------------------------+----------------------------------+
+; divider:ic1|data2[6]                   ; Merged with divider:ic1|data1[6] ;
+; divider:ic1|data2[5]                   ; Merged with divider:ic1|data1[5] ;
+; divider:ic1|data2[4]                   ; Merged with divider:ic1|data1[4] ;
+; divider:ic1|data2[3]                   ; Merged with divider:ic1|data1[3] ;
+; divider:ic1|data2[2]                   ; Merged with divider:ic1|data1[2] ;
+; divider:ic1|data2[0]                   ; Merged with divider:ic1|data1[0] ;
+; divider:ic1|data2[9]                   ; Merged with divider:ic1|data1[9] ;
+; divider:ic1|data2[8]                   ; Merged with divider:ic1|data1[8] ;
+; divider:ic1|data2[7]                   ; Merged with divider:ic1|data1[7] ;
+; divider:ic1|data2[1]                   ; Merged with divider:ic1|data1[1] ;
+; ctrl:ic2|lcd_address[0..9]             ; Lost fanout                      ;
+; ctrl:ic2|fsm~4                         ; Lost fanout                      ;
+; ctrl:ic2|fsm~5                         ; Lost fanout                      ;
+; ctrl:ic2|fsm~6                         ; Lost fanout                      ;
+; ctrl:ic2|fsm~7                         ; Lost fanout                      ;
+; ctrl:ic2|fsm~8                         ; Lost fanout                      ;
+; divider:ic1|r1                         ; Merged with divider:ic1|r2       ;
+; Total Number of Removed Registers = 26 ;                                  ;
++----------------------------------------+----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                               ;
++-------------------------+--------------------+----------------------------------------------------------------------------+
+; Register name           ; Reason for Removal ; Registers Removed due to This Register                                     ;
++-------------------------+--------------------+----------------------------------------------------------------------------+
+; ctrl:ic2|lcd_address[9] ; Lost Fanouts       ; ctrl:ic2|lcd_address[5], ctrl:ic2|lcd_address[4], ctrl:ic2|lcd_address[3], ;
+;                         ;                    ; ctrl:ic2|lcd_address[2], ctrl:ic2|lcd_address[1], ctrl:ic2|lcd_address[0]  ;
++-------------------------+--------------------+----------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -278,12 +300,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 28    ;
+; Total registers                              ; 45    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 27    ;
+; Number of registers using Asynchronous Clear ; 44    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 5     ;
+; Number of registers using Clock Enable       ; 11    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -293,9 +315,9 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; ctrl:ic2|add_con[2]                    ; 5       ;
-; ctrl:ic2|add_con[1]                    ; 6       ;
-; ctrl:ic2|add_con[0]                    ; 8       ;
+; ctrl:ic2|add_con[2]                    ; 8       ;
+; ctrl:ic2|add_con[1]                    ; 20      ;
+; ctrl:ic2|add_con[0]                    ; 18      ;
 ; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
 
@@ -325,22 +347,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 6                           ;
-; cycloneiii_ff         ; 28                          ;
-;     CLR               ; 22                          ;
-;     ENA CLR           ; 5                           ;
+; cycloneiii_ff         ; 45                          ;
+;     CLR               ; 33                          ;
+;     ENA CLR           ; 11                          ;
 ;     plain             ; 1                           ;
 ; cycloneiii_io_obuf    ; 1                           ;
-; cycloneiii_lcell_comb ; 45                          ;
-;     arith             ; 9                           ;
-;         2 data inputs ; 9                           ;
-;     normal            ; 36                          ;
-;         1 data inputs ; 4                           ;
+; cycloneiii_lcell_comb ; 96                          ;
+;     arith             ; 14                          ;
 ;         2 data inputs ; 13                          ;
-;         3 data inputs ; 6                           ;
-;         4 data inputs ; 13                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 82                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 16                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 49                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 2.01                        ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 3.09                        ;
 +-----------------------+-----------------------------+
 
 
@@ -349,7 +372,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -359,7 +382,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.2 Build 602 07/19/2017 SJ Lite Edition
-    Info: Processing started: Mon Jun 04 10:25:23 2018
+    Info: Processing started: Mon Jun 04 21:50:47 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off I2C -c I2C
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -373,42 +396,65 @@ Info (12021): Found 1 design units, including 1 entities, in source file ctrl.v
     Info (12023): Found entity 1: ctrl File: D:/FPGA/I2C/ctrl.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file cmd_rom.v
     Info (12023): Found entity 1: cmd_rom File: D:/FPGA/I2C/cmd_rom.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file lcd_rom.v
+    Info (12023): Found entity 1: lcd_rom File: D:/FPGA/I2C/lcd_rom.v Line: 1
 Info (12127): Elaborating entity "TOP" for the top level hierarchy
-Info (12128): Elaborating entity "divider" for hierarchy "divider:ic1" File: D:/FPGA/I2C/TOP.v Line: 19
-Info (12128): Elaborating entity "ctrl" for hierarchy "ctrl:ic2" File: D:/FPGA/I2C/TOP.v Line: 33
-Warning (10240): Verilog HDL Always Construct warning at ctrl.v(19): inferring latch(es) for variable "address_7a", which holds its previous value in one or more paths through the always construct File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[0]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[1]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[2]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[3]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[4]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[5]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[6]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (10041): Inferred latch for "address_7a[7]" at ctrl.v(19) File: D:/FPGA/I2C/ctrl.v Line: 19
-Info (12128): Elaborating entity "cmd_rom" for hierarchy "cmd_rom:ic3" File: D:/FPGA/I2C/TOP.v Line: 39
+Info (12128): Elaborating entity "divider" for hierarchy "divider:ic1" File: D:/FPGA/I2C/TOP.v Line: 20
+Info (12128): Elaborating entity "ctrl" for hierarchy "ctrl:ic2" File: D:/FPGA/I2C/TOP.v Line: 36
+Warning (10240): Verilog HDL Always Construct warning at ctrl.v(21): inferring latch(es) for variable "address_7a", which holds its previous value in one or more paths through the always construct File: D:/FPGA/I2C/ctrl.v Line: 21
+Warning (10240): Verilog HDL Always Construct warning at ctrl.v(21): inferring latch(es) for variable "cmd_mod_c0", which holds its previous value in one or more paths through the always construct File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[0]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[1]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[2]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[3]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[4]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[5]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[6]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "cmd_mod_c0[7]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[0]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[1]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[2]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[3]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[4]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[5]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[6]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (10041): Inferred latch for "address_7a[7]" at ctrl.v(21) File: D:/FPGA/I2C/ctrl.v Line: 21
+Info (12128): Elaborating entity "cmd_rom" for hierarchy "cmd_rom:ic3" File: D:/FPGA/I2C/TOP.v Line: 42
 Warning (10030): Net "rom.data_a" at cmd_rom.v(7) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/cmd_rom.v Line: 7
 Warning (10030): Net "rom.waddr_a" at cmd_rom.v(7) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/cmd_rom.v Line: 7
 Warning (10030): Net "rom.we_a" at cmd_rom.v(7) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/cmd_rom.v Line: 7
+Info (12128): Elaborating entity "lcd_rom" for hierarchy "lcd_rom:ic4" File: D:/FPGA/I2C/TOP.v Line: 48
+Warning (10030): Net "rom.data_a" at lcd_rom.v(5) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/lcd_rom.v Line: 5
+Warning (10030): Net "rom.waddr_a" at lcd_rom.v(5) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/lcd_rom.v Line: 5
+Warning (10030): Net "rom.we_a" at lcd_rom.v(5) has no driver or initial value, using a default initial value '0' File: D:/FPGA/I2C/lcd_rom.v Line: 5
 Critical Warning (127005): Memory depth (64) in the design file differs from memory depth (41) in the Memory Initialization File "D:/FPGA/I2C/db/I2C.ram0_cmd_rom_565410ab.hdl.mif" -- setting initial value for remaining addresses to 0
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/FPGA/I2C/db/I2C.ram0_cmd_rom_565410ab.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Info (276014): Found 1 instances of uninferred RAM logic
+Info (276014): Found 2 instances of uninferred RAM logic
     Info (276013): RAM logic "cmd_rom:ic3|rom" is uninferred because MIF is not supported for the selected family File: D:/FPGA/I2C/cmd_rom.v Line: 7
+    Info (276013): RAM logic "lcd_rom:ic4|rom" is uninferred because MIF is not supported for the selected family File: D:/FPGA/I2C/lcd_rom.v Line: 5
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "D:/FPGA/I2C/db/I2C.ram0_cmd_rom_565410ab.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (13000): Registers with preset signals will power-up high File: D:/FPGA/I2C/divider.v Line: 9
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (17049): 15 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/FPGA/I2C/output_files/I2C.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 53 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 106 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 3 output pins
     Info (21060): Implemented 1 bidirectional pins
-    Info (21061): Implemented 47 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4780 megabytes
-    Info: Processing ended: Mon Jun 04 10:25:35 2018
+    Info (21061): Implemented 100 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4782 megabytes
+    Info: Processing ended: Mon Jun 04 21:50:59 2018
     Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:24
+    Info: Total CPU time (on all processors): 00:00:25
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/FPGA/I2C/output_files/I2C.map.smsg.
 
 

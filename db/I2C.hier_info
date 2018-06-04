@@ -1,9 +1,9 @@
 |TOP
 ck => ck.IN1
 reset => reset.IN2
-scl << scl.DB_MAX_OUTPUT_PORT_TYPE
-ck1 << ck1.DB_MAX_OUTPUT_PORT_TYPE
-ck2 << ck2.DB_MAX_OUTPUT_PORT_TYPE
+scl <= scl.DB_MAX_OUTPUT_PORT_TYPE
+ck1 <= ck1.DB_MAX_OUTPUT_PORT_TYPE
+ck2 <= ck2.DB_MAX_OUTPUT_PORT_TYPE
 sda <> ctrl:ic2.sda
 sda <> sda
 
@@ -62,6 +62,16 @@ clk2 <= clk2~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TOP|ctrl:ic2
+reset => lcd_address[0]~reg0.ACLR
+reset => lcd_address[1]~reg0.ACLR
+reset => lcd_address[2]~reg0.ACLR
+reset => lcd_address[3]~reg0.ACLR
+reset => lcd_address[4]~reg0.ACLR
+reset => lcd_address[5]~reg0.ACLR
+reset => lcd_address[6]~reg0.ACLR
+reset => lcd_address[7]~reg0.ACLR
+reset => lcd_address[8]~reg0.ACLR
+reset => lcd_address[9]~reg0.ACLR
 reset => add_con[0].PRESET
 reset => add_con[1].PRESET
 reset => add_con[2].PRESET
@@ -74,6 +84,16 @@ reset => cmd_address[4]~reg0.ACLR
 reset => cmd_address[5]~reg0.ACLR
 reset => cmd_address[6]~reg0.ACLR
 reset => fsm~3.DATAIN
+clk2 => lcd_address[0]~reg0.CLK
+clk2 => lcd_address[1]~reg0.CLK
+clk2 => lcd_address[2]~reg0.CLK
+clk2 => lcd_address[3]~reg0.CLK
+clk2 => lcd_address[4]~reg0.CLK
+clk2 => lcd_address[5]~reg0.CLK
+clk2 => lcd_address[6]~reg0.CLK
+clk2 => lcd_address[7]~reg0.CLK
+clk2 => lcd_address[8]~reg0.CLK
+clk2 => lcd_address[9]~reg0.CLK
 clk2 => add_con[0].CLK
 clk2 => add_con[1].CLK
 clk2 => add_con[2].CLK
@@ -98,6 +118,14 @@ cmd_data[4] => Mux1.IN3
 cmd_data[5] => Mux1.IN2
 cmd_data[6] => Mux1.IN1
 cmd_data[7] => Mux1.IN0
+lcd_data[0] => Mux3.IN7
+lcd_data[1] => Mux3.IN6
+lcd_data[2] => Mux3.IN5
+lcd_data[3] => Mux3.IN4
+lcd_data[4] => Mux3.IN3
+lcd_data[5] => Mux3.IN2
+lcd_data[6] => Mux3.IN1
+lcd_data[7] => Mux3.IN0
 cmd_address[0] <= cmd_address[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cmd_address[1] <= cmd_address[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cmd_address[2] <= cmd_address[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
@@ -105,10 +133,20 @@ cmd_address[3] <= cmd_address[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cmd_address[4] <= cmd_address[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cmd_address[5] <= cmd_address[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 cmd_address[6] <= cmd_address[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[0] <= lcd_address[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[1] <= lcd_address[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[2] <= lcd_address[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[3] <= lcd_address[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[4] <= lcd_address[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[5] <= lcd_address[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[6] <= lcd_address[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[7] <= lcd_address[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[8] <= lcd_address[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+lcd_address[9] <= lcd_address[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 sda_w <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
 ctrl_d <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 ctrl_l <= ctrl_l.DB_MAX_OUTPUT_PORT_TYPE
-ctrl_h <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_h <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TOP|cmd_rom:ic3
@@ -119,6 +157,27 @@ address[3] => rom.RADDR3
 address[4] => rom.RADDR4
 address[5] => rom.RADDR5
 address[6] => ~NO_FANOUT~
+data_out[0] <= rom.DATAOUT
+data_out[1] <= rom.DATAOUT1
+data_out[2] <= rom.DATAOUT2
+data_out[3] <= rom.DATAOUT3
+data_out[4] <= rom.DATAOUT4
+data_out[5] <= rom.DATAOUT5
+data_out[6] <= rom.DATAOUT6
+data_out[7] <= rom.DATAOUT7
+
+
+|TOP|lcd_rom:ic4
+address[0] => rom.RADDR
+address[1] => rom.RADDR1
+address[2] => rom.RADDR2
+address[3] => rom.RADDR3
+address[4] => rom.RADDR4
+address[5] => rom.RADDR5
+address[6] => rom.RADDR6
+address[7] => rom.RADDR7
+address[8] => rom.RADDR8
+address[9] => rom.RADDR9
 data_out[0] <= rom.DATAOUT
 data_out[1] <= rom.DATAOUT1
 data_out[2] <= rom.DATAOUT2

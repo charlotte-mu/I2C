@@ -6,11 +6,15 @@ module ctrl(
 );
 
 reg [6:0]cmd_address_next;
-
 reg [4:0]fsm,fsm_next;
 reg [3:0]add_con,add_con_next;
-
 reg [7:0]address_7a;
+reg sda_r;
+
+always@(negedge clk2)
+begin
+	sda_r <= sda;
+end
 
 always@(posedge clk2,negedge reset)
 begin
@@ -73,7 +77,7 @@ begin
 		5'd3:		//ack    _address => 7a
 		begin
 			ctrl_d = 1'b0;
-			if(sda == 1'b1)
+			if(sda_r == 1'b1)
 			begin
 				fsm_next = 5'd0;
 			end
@@ -108,7 +112,7 @@ begin
 		5'd5:		//ack    _cmd_mode
 		begin
 			ctrl_d = 1'b0;
-			if(sda == 1'b1)
+			if(sda_r == 1'b1)
 			begin
 				fsm_next = 5'd0;
 			end
@@ -143,7 +147,7 @@ begin
 		5'd7:		//ack     _cmd_mode
 		begin
 			ctrl_d = 1'b0;
-			if(sda == 1'b1)
+			if(sda_r == 1'b1)
 			begin
 				fsm_next = 5'd0;
 				cmd_address_next = cmd_address;

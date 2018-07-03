@@ -50,7 +50,7 @@ begin
 			fsm_next = 5'd1;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd1:		//start
 		begin
@@ -61,7 +61,7 @@ begin
 			fsm_next = 5'd2;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd2:		//address => 7a
 		begin
@@ -80,7 +80,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd3:		//ack    _address => 7a
 		begin
@@ -98,7 +98,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd4:		//cmd_mode  00
 		begin
@@ -117,7 +117,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd5:		//ack    _cmd_mode
 		begin
@@ -135,7 +135,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd6:		//cmd_data
 		begin
@@ -154,7 +154,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd7:		//ack     _cmd
 		begin
@@ -173,7 +173,7 @@ begin
 			sda_w = 1'b0;
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd8:		//stop1
 		begin
@@ -184,7 +184,7 @@ begin
 			fsm_next = 5'd9;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd9:		//stop2
 		begin
@@ -202,7 +202,7 @@ begin
 			end
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		//---------------------------------------------------------------------------------//
 		5'd10:		//reset
@@ -214,7 +214,7 @@ begin
 			fsm_next = 5'd11;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd11:		//start
 		begin
@@ -244,7 +244,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd13:		//ack    _address => 7a
 		begin
@@ -262,7 +262,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd14:		//cmd_mode  C0
 		begin
@@ -281,7 +281,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd15:		//ack    _cmd_mode
 		begin
@@ -299,7 +299,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd16:		//LCD_data
 		begin
@@ -318,7 +318,7 @@ begin
 			ctrl_h = 1'b0;
 			ctrl_l = 1'b0;
 			cmd_address_next = cmd_address;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd17:		//ack     LCD
 		begin
@@ -348,7 +348,7 @@ begin
 			fsm_next = 5'd19;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		5'd19:		//stop2
 		begin
@@ -366,7 +366,7 @@ begin
 			end
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 		default:
 		begin
@@ -377,7 +377,7 @@ begin
 			fsm_next = fsm;
 			cmd_address_next = cmd_address;
 			add_con_next = add_con;
-			lcd_address_next <= lcd_address;
+			lcd_address_next = lcd_address;
 		end
 	endcase
 end

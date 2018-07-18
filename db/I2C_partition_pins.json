@@ -20,11 +20,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "ck",
 					"strict" : false
 				},
 				{
-					"name" : "ck",
+					"name" : "reset",
 					"strict" : false
 				}
 			]

@@ -62,6 +62,8 @@ clk2 <= clk2~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |TOP|ctrl:ic2
+reset => mode[0].ACLR
+reset => mode[1].ACLR
 reset => select~reg0.ACLR
 reset => address[0]~reg0.ACLR
 reset => address[1]~reg0.ACLR
@@ -78,6 +80,8 @@ reset => add_con[1].PRESET
 reset => add_con[2].PRESET
 reset => add_con[3].ACLR
 reset => fsm~3.DATAIN
+clk2 => mode[0].CLK
+clk2 => mode[1].CLK
 clk2 => select~reg0.CLK
 clk2 => address[0]~reg0.CLK
 clk2 => address[1]~reg0.CLK
@@ -96,7 +100,6 @@ clk2 => add_con[3].CLK
 clk2 => fsm~1.DATAIN
 clk2 => sda_r.CLK
 sda => sda_r.DATAIN
-scl => ~NO_FANOUT~
 clk1 => ~NO_FANOUT~
 data[0] => Mux2.IN7
 data[1] => Mux2.IN6
@@ -117,9 +120,7 @@ address[7] <= address[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 address[8] <= address[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 address[9] <= address[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 sda_w <= Selector0.DB_MAX_OUTPUT_PORT_TYPE
-ctrl_d <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-ctrl_l <= ctrl_l.DB_MAX_OUTPUT_PORT_TYPE
-ctrl_h <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+ctrl_h <= ctrl_h.DB_MAX_OUTPUT_PORT_TYPE
 select <= select~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
